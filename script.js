@@ -17,7 +17,7 @@ function calculate(n1, op, n2) {
 function updateDisplay() {
     cur = n1 + op + n2
     switch (cur) {
-        case "error":
+        case "Error":
             document.querySelector('.display').innerHTML = "error"
             n1 = ""
             op = ""
@@ -127,4 +127,25 @@ document.querySelector('#percent').addEventListener('click', () => {
     updateDisplay()
 });
 
-document.querySelector('#plusminus').addEventListener('click', () => {
+document.querySelector('#reverse').addEventListener('click', () => {
+    if (op == "") {
+        n1 = parseFloat(n1) * -1
+    }
+    else if (op != "") {
+        if (op == "-") {
+            op = "+"
+        }
+        else if (op == "+") {
+            op = "-"
+        }
+        else {
+            if (n2 != "") {
+                n2 = parseFloat(n2) * -1
+            }
+        }
+    }
+    else {
+    }
+    updateDisplay()
+});
+

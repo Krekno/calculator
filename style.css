@@ -34,10 +34,6 @@ button {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.equal {
-    grid-column: span 2;
-}
-
 .display {
     grid-column: span 4;
     background-color: #ffffff;

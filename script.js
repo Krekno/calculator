@@ -1,7 +1,6 @@
 function calculate(n1, op, n2) {
     num1 = parseFloat(n1)
     num2 = parseFloat(n2)
-    console.log(num1, op, num2)
     switch (op) {
         case '+':
             return num1 + num2
@@ -31,6 +30,12 @@ function updateDisplay() {
             n2 = ""
             break
         case "NaN":
+            document.querySelector('.display').innerHTML = "error"
+            n1 = ""
+            op = ""
+            n2 = ""
+            break
+        case "Infinity":
             document.querySelector('.display').innerHTML = "error"
             n1 = ""
             op = ""

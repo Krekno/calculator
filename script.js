@@ -158,3 +158,62 @@ document.querySelector('#delete').addEventListener('click', () => {
     }
     updateDisplay() 
 });
+
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (key >= '0' && key <= '9') {
+        if (op === "" && key !== '0') {
+            n1 += key;
+            updateDisplay();
+        } else if (op !== "" && key !== '0') {
+            n2 += key;
+            updateDisplay();
+        }
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        if (n1 !== "") {
+            op = key;
+            updateDisplay();
+        }
+    } else if (key === 'Enter') {
+        if (n2 !== "") {
+            n1 = calculate(n1, op, n2);
+            op = "";
+            n2 = "";
+            updateDisplay();
+        }
+    } else if (key === 'Escape') {
+        n1 = "";
+        op = "";
+        n2 = "";
+        updateDisplay();
+    } else if (key === '.') {
+        if (op === "" && !n1.includes(".")) {
+            if (n1 === "") {
+                n1 = "0.";
+            } else {
+                n1 += ".";
+            }
+        } else if (op !== "" && !n2.includes(".")) {
+            if (n2 === "") {
+                n2 = "0.";
+            } else {
+                n2 += ".";
+            }
+        }
+        updateDisplay();
+    } else if (key === '%') {
+        if (op === "") {
+            n1 = (parseFloat(n1) / 100).toString();
+        } else {
+            n2 = (parseFloat(n2) / 100).toString();
+        }
+        updateDisplay();
+    } else if (key === 'Backspace') {
+        if (op === "") {
+            n1 = n1.slice(0, -1);
+        } else if (op !== "") {
+            n2 = n2.slice(0, -1);
+        }
+        updateDisplay();
+    }
+});

@@ -3,13 +3,13 @@ function calculate(n1, op, n2) {
     num2 = parseFloat(n2)
     switch (op) {
         case '+':
-            return num1 + num2
+            return (num1 + num2).toFixed(2)
         case '-':
-            return num1 - num2
+            return (num1 - num2).toFixed(2)
         case '*':
-            return num1 * num2
+            return (num1 * num2).toFixed(2)
         case '/':
-            return num1 / num2
+            return (num1 / num2).toFixed(2)
     }
     return "error"
 }
@@ -129,7 +129,7 @@ document.querySelector('#percent').addEventListener('click', () => {
 
 document.querySelector('#reverse').addEventListener('click', () => {
     if (op == "") {
-        n1 = parseFloat(n1) * -1
+        n1 = (parseFloat(n1) * -1).toString()
     }
     else if (op != "") {
         if (op == "-") {
@@ -140,7 +140,7 @@ document.querySelector('#reverse').addEventListener('click', () => {
         }
         else {
             if (n2 != "") {
-                n2 = parseFloat(n2) * -1
+                n2 = (parseFloat(n2) * -1).toString()
             }
         }
     }
@@ -149,3 +149,12 @@ document.querySelector('#reverse').addEventListener('click', () => {
     updateDisplay()
 });
 
+document.querySelector('#delete').addEventListener('click', () => {
+    if (op == "") {
+        n1 = n1.slice(0, -1)
+    }
+    else if (op != "") {
+        n2 = n2.slice(0, -1)
+    }
+    updateDisplay() 
+});

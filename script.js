@@ -126,3 +126,5 @@ document.querySelector('#percent').addEventListener('click', () => {
     }
     updateDisplay()
 });
+
+document.querySelector('#plusminus').addEventListener('click', () => {

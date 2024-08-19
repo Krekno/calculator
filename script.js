@@ -25,7 +25,7 @@ function updateDisplay() {
             n2 = ""
             break
         case "0":
-            document.querySelector('.display').innerHTML = "error"
+            document.querySelector('.display').innerHTML = "0"
             n1 = ""
             op = ""
             n2 = ""
